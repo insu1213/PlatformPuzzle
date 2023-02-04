@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2302086923468990901}
   m_Layer: 0
   m_Name: Box-moveable
-  m_TagString: Untagged
+  m_TagString: Box_moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7533814276879098662}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3482ebfd9e297d34a853b0439d85d624, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

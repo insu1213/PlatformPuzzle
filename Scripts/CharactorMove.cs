@@ -8,6 +8,8 @@ public class CharactorMove : MonoBehaviour
     float movingX;
     float movingZ;
     Rigidbody rb;
+    private RaycastHit hit;
+    Vector3 playerDir;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,45 +20,87 @@ public class CharactorMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) && RayCheck(Vector3.right))
         {
+            playerDir = Vector3.right;
             fixXYZ = transform.position;
             movingX = 0.4f;
             movingZ = 0;
             StartCoroutine(PrepareDelay());
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && RayCheck(Vector3.left))
         {
+            playerDir = Vector3.left;
             fixXYZ = transform.position;
             movingX = -0.4f;
             movingZ = 0;
             StartCoroutine(PrepareDelay());
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && RayCheck(Vector3.back))
         {
+            playerDir = Vector3.back;
             fixXYZ = transform.position;
-            movingZ = -0.4f;
             movingX = 0;
+            movingZ = -0.4f;
             StartCoroutine(PrepareDelay());
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && RayCheck(Vector3.forward))
         {
+            playerDir = Vector3.forward;
             fixXYZ = transform.position;
-            movingZ = 0.4f;
             movingX = 0;
+            movingZ = 0.4f;
             StartCoroutine(PrepareDelay());
         }
 
-            transform.position = Vector3.MoveTowards(
-                    transform.position,
-                    new Vector3(fixXYZ.x + movingX, fixXYZ.y, fixXYZ.z + movingZ),
-                    0.002f
-                    );
+        transform.position = Vector3.MoveTowards(
+                transform.position,
+                new Vector3(fixXYZ.x + movingX, fixXYZ.y, fixXYZ.z + movingZ),
+                1.5f * Time.deltaTime
+                );
+        Debug.DrawRay(transform.position, playerDir, Color.red);
     }
+    
     IEnumerator PrepareDelay()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.3f);
+    }
+
+    bool RayCheck(Vector3 direction)
+    {
+        
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(transform.position, direction, 0.3f);
+        
+        if(hits.Length <= 0)
+        {
+            return true;
+        }
+        RaycastHit hit = hits[0];
+
+        if (hit.collider.gameObject.CompareTag("Wall") ||
+            hit.collider.gameObject.CompareTag("Box"))
+        {
+            return false;
+        }
+
+
+        else if (hit.collider.gameObject.CompareTag("Box_moveable"))
+        {
+            hits = Physics.RaycastAll(transform.position, direction, 0.7f);
+            if (hits.Length >= 2)
+            {
+                if (hits[1].collider.gameObject.CompareTag("Box"))
+                {
+                    return false;
+                } else
+                {
+                    return true;
+                }
+            }
+        }
+        Debug.Log(hit.collider.gameObject.name);
+        return true;
     }
 
     // @완료된 것
