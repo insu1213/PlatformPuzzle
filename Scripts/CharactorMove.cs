@@ -12,8 +12,10 @@ public class CharactorMove : MonoBehaviour
     Vector3 playerDir;
     public bool isPressed;
     public int HP;
+    public int STAR;
     GameObject[] HpUI;
     public GameObject gameover;
+    
     [Space]
     [SerializeField] private float speed;
     [SerializeField] private float boxSpeed;
@@ -97,8 +99,9 @@ public class CharactorMove : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Jump"))
         {
-
-            rb.AddForce(Vector3.up * 400);
+            fixXYZ = transform.position;
+            rb.AddForce(Vector3.up * 410);
+            rb.AddForce(Vector3.forward * 30);
             Debug.Log("Collision ÁøÀÔ");
             StartCoroutine(JumpDelay());
         }
@@ -136,13 +139,32 @@ public class CharactorMove : MonoBehaviour
 
             if (hits.Length >= 2)
             {
-                if (hits[1].collider.gameObject.CompareTag("Box"))
+                if (hits[1].collider.gameObject.CompareTag("Box") || hits[1].collider.gameObject.CompareTag("Box_moveable"))
                 {
                     return false;
                 }
             }
             else
             {
+                if(direction ==  Vector3.right)
+                {
+                    movingX = 0.4f;
+                    movingZ = 0;
+                } else if (direction == Vector3.left)
+                {
+                    movingX = -0.4f;
+                    movingZ = 0;
+                } else if (direction == Vector3.back)
+                {
+                    movingX = 0;
+                    movingZ = -0.4f;
+                } else if (direction == Vector3.forward)
+                {
+                    movingX = 0;
+                    movingZ = 0.4f;
+                }
+
+
                 Debug.Log("2");
                 Vector3 BoxXYZ = hit.collider.transform.position;
                 Debug.Log(hit.transform.name + " / " + Time.deltaTime);
