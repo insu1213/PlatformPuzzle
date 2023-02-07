@@ -14,15 +14,19 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Physics.Raycast(transform.position, Vector3.up, out hit, 0.4f))
-        {
-            if(hit.collider.gameObject.CompareTag("Player"))
-            {
-                Rigidbody hitRigid = hit.collider.gameObject.GetComponent<Rigidbody>();
-                hitRigid.AddForce(Vector3.up * 10f);
-            }
-            StartCoroutine(RayDelay());
-        }
+        //if(Physics.Raycast(transform.position, Vector3.up, out hit, 1.0f))
+        //{
+        //    if(hit.collider.gameObject.CompareTag("Player"))
+        //    {
+        //        Transform hitTransform = hit.collider.gameObject.GetComponent<Transform>();
+        //        hitTransform.transform.position = Vector3.MoveTowards(
+        //            hitTransform.transform.position,
+        //            Vector3.up * 10,
+        //            1.5f * Time.deltaTime
+        //            );
+        //    }
+        //    StartCoroutine(RayDelay());
+        //}
     }
 
     IEnumerator RayDelay()
