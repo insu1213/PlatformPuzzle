@@ -834,6 +834,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0f454d6a642da840aac0db3f3bc137a, type: 3}
+--- !u!1001 &141852421
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4683854062562526872, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134781994038268894, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_Name
+      value: SoftStar (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.285
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.801
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136092902708283624, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 733cd52cef8cf5046bb0841de9392995, type: 3}
 --- !u!1 &148219917
 GameObject:
   m_ObjectHideFlags: 0
@@ -4645,7 +4706,7 @@ GameObject:
   - component: {fileID: 830103256}
   m_Layer: 5
   m_Name: Image (6)
-  m_TagString: Heart
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5693,7 +5754,7 @@ GameObject:
   - component: {fileID: 982880802}
   m_Layer: 5
   m_Name: Image (5)
-  m_TagString: Heart
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7413,7 +7474,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -52.8}
-  m_SizeDelta: {x: 320, y: 60}
+  m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347232393
 MonoBehaviour:
@@ -7437,10 +7498,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_FontSize: 32
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -7448,7 +7509,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 3
-  m_Text: "\uCCB4\uB825\uC774 \uBC14\uB2E5\uB0AC\uC2B5\uB2C8\uB2E4."
+  m_Text: "\uC774\uAC83\uB3C4 \uBABB\uAE78?"
 --- !u!222 &1347232394
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7638,7 +7699,7 @@ GameObject:
   - component: {fileID: 1393229082}
   m_Layer: 5
   m_Name: Image (4)
-  m_TagString: Heart
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

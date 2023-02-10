@@ -14,6 +14,7 @@ public class CharactorMove : MonoBehaviour
     public int HP;
     public int STAR;
     GameObject[] HpUI;
+    GameObject[] StarUI;
     public GameObject gameover;
     
     [Space]
@@ -25,8 +26,14 @@ public class CharactorMove : MonoBehaviour
         fixXYZ = transform.position;
         rb = GetComponent<Rigidbody>();
         isPressed = false;
-        HP = 4;
+        HP = 3;
+        STAR = 0;
         HpUI = GameObject.FindGameObjectsWithTag("Heart");
+        StarUI = GameObject.FindGameObjectsWithTag("Star");
+        for(int i = 0; i < StarUI.Length; i++)
+        {
+            StarUI[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -189,19 +196,25 @@ public class CharactorMove : MonoBehaviour
         {
             gameover.GetComponent<Gameover>().Show();
         }
-        HpUI[HP - 1].SetActive(false);
+        HpUI[HP].SetActive(false);
 
 
+    }
+
+    public void StarStatus()
+    {
+        StarUI[STAR].SetActive(true);              
     }
     // @완료된 것
     // 캐릭터 이동
     // 게임 시스템 구상 거의 완료
+    // 3. 스타 먹는 모션 만들기
 
     // @추가 해야 할 것.
     // 1. RayCast로 바닥 정보 확인 후 체력 감소(일부 완료), 점프 처리
     // 1-1. 가시에 닿았을 때 캐릭터 체력 감소 모션
     // 2. Box_Moveable 버그 수정하기
-    // 3. 스타 먹는 모션 만들기
+
     // 4. 스테이지 완료 만들기(스코어, 체력)
     // 5. 타이틀 화면 만들기
     // 6. 추가 스테이지 만들기
