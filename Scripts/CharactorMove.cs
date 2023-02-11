@@ -203,7 +203,7 @@ public class CharactorMove : MonoBehaviour
 
     public void StarStatus()
     {
-        StarUI[STAR].SetActive(true);              
+        StarUI[STAR-1].SetActive(true);              
     }
     // @완료된 것
     // 캐릭터 이동
