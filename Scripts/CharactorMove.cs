@@ -15,7 +15,7 @@ public class CharactorMove : MonoBehaviour
     public int STAR;
     GameObject[] HpUI;
     GameObject[] StarUI;
-    public GameObject gameover;
+    public GameObject UIManager;
     
     [Space]
     [SerializeField] private float speed;
@@ -26,7 +26,7 @@ public class CharactorMove : MonoBehaviour
         fixXYZ = transform.position;
         rb = GetComponent<Rigidbody>();
         isPressed = false;
-        HP = 3;
+        HP = 4;
         STAR = 0;
         HpUI = GameObject.FindGameObjectsWithTag("Heart");
         StarUI = GameObject.FindGameObjectsWithTag("Star");
@@ -98,7 +98,8 @@ public class CharactorMove : MonoBehaviour
     }
     IEnumerator JumpDelay()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.3f);
+        fixXYZ = transform.position;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -106,7 +107,6 @@ public class CharactorMove : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Jump"))
         {
-            fixXYZ = transform.position;
             rb.AddForce(Vector3.up * 410);
             rb.AddForce(Vector3.forward * 30);
             Debug.Log("Collision ¡¯¿‘");
@@ -194,9 +194,9 @@ public class CharactorMove : MonoBehaviour
     {
         if (HP == 1)
         {
-            gameover.GetComponent<Gameover>().Show();
+            UIManager.GetComponent<UIManager>().Show_GameOver();
         }
-        HpUI[HP].SetActive(false);
+        HpUI[HP-1].SetActive(false);
 
 
     }
